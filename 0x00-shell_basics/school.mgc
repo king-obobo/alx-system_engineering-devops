@@ -1,3 +1,4 @@
 #!/bin/bash
-0 string SCHOOL School data \n!:mime School
+echo -e '0 string SCHOOL school data\n!:mime School' >> school.mgc
+chmod u+x school.mgc
 wc -l school.mgc
