@@ -1,0 +1,7 @@
+--no-double_quoted_strings-check
+--no-80chars-check
+--no-trailing_whitespace-check
+--no-variable_scope-check
+--fail-on-warnings
+--fix
+--only-checks indentation
