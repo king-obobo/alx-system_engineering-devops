@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """returns information about his/her TODO list progress."""
+import csv
 import requests
 import sys
-import csv
 
 BASE_URL = "https://jsonplaceholder.typicode.com/"
 
