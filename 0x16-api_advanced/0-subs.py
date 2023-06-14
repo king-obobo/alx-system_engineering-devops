@@ -10,8 +10,8 @@ def number_of_subscribers(subreddit):
     headers = {
         "User-agent": "linux:0x016.api.advanced:v1.0.0"
     }
-    res = requests.get(URL, headers = headers, allow_redirects = False)
-    if res.status_code == "404":
+    res = requests.get(URL, headers=headers, allow_redirects=False)
+    results = res.json().get("data", None)
+    if results == None:
         return 0
-    results = res.json().get("data")
-    return results.get("subscribers")
+    return results.get("subscribers", 0)
