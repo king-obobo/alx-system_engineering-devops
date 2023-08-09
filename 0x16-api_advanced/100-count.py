@@ -47,7 +47,7 @@ def count_words(subreddit, word_list, instances={}, after="", count=0):
         for item in times_appeared.keys():
             val = instances.get(item)
             if val is not None:
-                instances[item]*= times_appeared.get(item)
+                instances[item] *= times_appeared.get(item)
         instances = sorted(instances.items(), key=lambda kv: (-kv[1], kv[0]))
         [print("{}: {}".format(k, v)) for k, v in instances]
     else:
