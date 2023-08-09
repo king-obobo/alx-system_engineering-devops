@@ -29,7 +29,10 @@ def count_words(subreddit, word_list, instances={}, after="", count=0):
     count += results.get("dist")
     for c in results.get("children"):
         title = c.get("data").get("title").lower().split()
-        for word in set([w.lower() for w in word_list]):
+        times_appeared = {}
+        for word in word_list:
+            times_appeared[word] = [word.lower() for word in
+                                    word_list].count(word)
             if word in title:
                 times = len([t for t in title if t == word.lower()])
                 if instances.get(word) is None:
@@ -41,6 +44,10 @@ def count_words(subreddit, word_list, instances={}, after="", count=0):
         if len(instances) == 0:
             print("")
             return
+        for item in times_appeared.keys():
+            val = instances.get(item)
+            if val is not None:
+                instances[item]*= times_appeared.get(item)
         instances = sorted(instances.items(), key=lambda kv: (-kv[1], kv[0]))
         [print("{}: {}".format(k, v)) for k, v in instances]
     else:
